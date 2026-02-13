@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Animated Reel Effect</title>
+<title>For Gabylii ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 
 <style>
 * {
@@ -16,64 +16,84 @@
 
 body {
     height: 100vh;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: radial-gradient(circle at top, #3a0f2d, #120013);
     font-family: 'Poppins', sans-serif;
-    overflow: hidden;
-    background: linear-gradient(-45deg, #1a1a1a, #0f2027, #203a43, #2c5364);
-    background-size: 400% 400%;
-    animation: gradientMove 8s ease infinite;
+    color: white;
+    text-align: center;
 }
 
 .container {
-    text-align: center;
-    color: white;
+    position: relative;
+    z-index: 2;
     padding: 20px;
 }
 
 h1 {
+    font-family: 'Playfair Display', serif;
     font-size: 3rem;
-    font-weight: 700;
+    margin-bottom: 20px;
     opacity: 0;
-    transform: scale(0.5);
-    animation: popIn 1s ease forwards;
+    transform: translateY(30px);
+    animation: fadeUp 2s ease forwards;
 }
 
-p {
-    margin-top: 20px;
-    font-size: 1.4rem;
+.message {
+    font-size: 1.2rem;
+    max-width: 400px;
+    margin: auto;
+    line-height: 1.6;
     opacity: 0;
-    animation: fadeIn 1s ease forwards;
-    animation-delay: 1s;
+    animation: fadeUp 2s ease forwards;
+    animation-delay: 1.5s;
 }
 
-@keyframes popIn {
+.proposal {
+    font-size: 1.5rem;
+    margin-top: 30px;
+    font-weight: 500;
+    color: #ffb6d9;
+    opacity: 0;
+    animation: fadeUp 2s ease forwards;
+    animation-delay: 3s;
+}
+
+@keyframes fadeUp {
     to {
         opacity: 1;
-        transform: scale(1);
+        transform: translateY(0);
     }
 }
 
-@keyframes fadeIn {
+/* Floating Hearts */
+.heart {
+    position: absolute;
+    bottom: -50px;
+    font-size: 20px;
+    color: #ff4d88;
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
     to {
-        opacity: 1;
+        transform: translateY(-110vh);
+        opacity: 0;
     }
 }
 
-@keyframes gradientMove {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
-}
-
-/* Mobile Optimization */
+/* Mobile */
 @media (max-width: 600px) {
     h1 {
-        font-size: 2.2rem;
+        font-size: 2.3rem;
     }
-    p {
-        font-size: 1.1rem;
+    .message {
+        font-size: 1rem;
+    }
+    .proposal {
+        font-size: 1.2rem;
     }
 }
 </style>
@@ -82,14 +102,39 @@ p {
 <body>
 
 <div class="container">
-    <h1 id="nameText">Ashley</h1>
-    <p id="sentenceText">You make everything feel effortless.</p>
+    <h1>Gabylii ❤️</h1>
+
+    <div class="message">
+        “He who finds a wife finds a good thing,  
+        and obtains favor from the Lord.” – Proverbs 18:22
+        <br><br>
+        From the very beginning, I have prayed that our love
+        be rooted in Christ, guided by His Word,
+        and blessed by His grace. In the wisdom of men before, but now, in the Lord and in His leading.
+    </div>
+
+    <div class="proposal">
+        Gabylii, will you be my Valentine once more —  
+        and walk this journey of faith and love with me together in the Lord?
+    </div>
 </div>
 
 <script>
-// OPTIONAL: Change text dynamically here
-document.getElementById("My Gabylii").textContent = "Yashwanth";
-document.getElementById("Will you be my forever valentine in the Lord?").textContent = "The calm in every chaos.";
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+    heart.style.fontSize = (15 + Math.random() * 20) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 8000);
+}
+
+setInterval(createHeart, 500);
 </script>
 
 </body>

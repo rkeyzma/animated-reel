@@ -91,14 +91,15 @@ color:#f5f5f5;
 .btn{
 display:inline-block;
 margin-top:45px;
-padding:14px 34px;
+padding:14px 40px;
 border-radius:40px;
 border:1px solid #FFD700;
 color:#FFD700;
 text-decoration:none;
 font-size:1rem;
-letter-spacing:2px;
+letter-spacing:3px;
 transition:.4s;
+cursor:pointer;
 }
 
 .btn:hover{
@@ -106,7 +107,7 @@ background:#FFD700;
 color:black;
 }
 
-/* FLOATING GOLDEN HEARTS */
+/* FLOATING HEARTS */
 
 .heart{
 position:fixed;
@@ -158,13 +159,19 @@ guiding every step we take together.
 
 You are truly one of God's sweetest blessings in my life.
 
-Happy Valentine's Day, My Gablyli, now and forever in the Lord
+Happy Valentine's Day, My Gablyli, now and forever in the Lord!
+
 
 </div>
 
-<a class="btn">AMEN!</a>
+<div class="btn" id="amenBtn">AMEN!</div>
 
 </div>
+
+<!-- MUSIC -->
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
 
 <script>
 
@@ -190,6 +197,32 @@ setTimeout(()=>heart.remove(),8000);
 }
 
 setInterval(createHeart,500);
+
+
+/* MUSIC FADE-IN */
+
+const btn = document.getElementById("amenBtn");
+const music = document.getElementById("bgMusic");
+
+btn.addEventListener("click", () => {
+
+music.volume = 0;
+music.play();
+
+let vol = 0;
+
+const fade = setInterval(() => {
+
+if(vol < 0.4){   // keeps it soft, not overpowering
+vol += 0.02;
+music.volume = vol;
+}else{
+clearInterval(fade);
+}
+
+}, 200);
+
+});
 
 </script>
 
